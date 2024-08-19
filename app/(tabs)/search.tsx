@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView, Text, StyleSheet, TextInput, View} from "react-native";
 import {Colors} from "@/constants/Colors";
 import Avatar from "@/components/avatar";
 
 const Search = () => {
+	const [searchQuery, setSearchQuery] = useState<string>();
+	
 	return (
 		<SafeAreaView style={styles.container}>
 			<View style={styles.header}>
@@ -12,7 +14,7 @@ const Search = () => {
 			</View>
 			
 			<View style={styles.searchContainer}>
-				<TextInput style={styles.searchBar} placeholder="Search" />
+				<TextInput onChangeText={setSearchQuery} style={styles.searchBar} placeholderTextColor={"gray"} placeholder="Search" />
 			</View>
 		</SafeAreaView>
 	);

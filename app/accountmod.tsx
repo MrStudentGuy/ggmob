@@ -123,14 +123,24 @@ const Accountmod = () => {
 			
 			<SafeAreaView style={styles.container}>
 				<View style={styles.header}>
-					<Text style={styles.title}>{createAccount ? 'Create Account' : 'Sign In'}</Text>
+					{createAccount ? (
+						<>
+							<Text style={{ fontSize: 36, fontWeight: 700, color: "white" }}>Welcome to GameGuide</Text>
+							<Text style={{ fontSize: 24, fontWeight: 500, color: "white" }}>We're excited to have you here 👋</Text>
+						</>
+					) : (
+						<>
+							<Text style={{ fontSize: 36, fontWeight: 700, color: "white" }}>Welcome Back!</Text>
+							<Text style={{ fontSize: 24, fontWeight: 500, color: "white" }}>Long time no see 🫣</Text>
+						</>
+					)}
 				</View>
 				
 				
 				{createAccount ? (
 					<View style={styles.globalContainer}>
-						<TextInput inputMode={"email"} style={styles.input} placeholder="Email" onChangeText={e => setEmail(e)} />
-						<TextInput secureTextEntry={true} style={styles.input} placeholder="Password" onChangeText={e => setPassword(e)} />
+						<TextInput inputMode={"email"} style={styles.input} placeholderTextColor={"gray"} placeholder="Email" onChangeText={e => setEmail(e)} />
+						<TextInput secureTextEntry={true} style={styles.input} placeholderTextColor={"gray"} placeholder="Password" onChangeText={e => setPassword(e)} />
 						<View style={styles.horizontalDivider} />
 						
 						<View style={styles.socialButtonContainer}>
@@ -161,8 +171,8 @@ const Accountmod = () => {
 					</View>
 				) : (
 					<View style={styles.globalContainer}>
-						<TextInput inputMode={"email"} style={styles.input} placeholder="Email" onChangeText={e => setEmail(e)} />
-						<TextInput secureTextEntry={true} style={styles.input} placeholder="Password" onChangeText={e => setPassword(e)} />
+						<TextInput inputMode={"email"} style={styles.input} placeholderTextColor={"gray"} placeholder="Email" onChangeText={e => setEmail(e)} />
+						<TextInput secureTextEntry={true} style={styles.input} placeholderTextColor={"gray"} placeholder="Password" onChangeText={e => setPassword(e)} />
 						<View style={styles.horizontalDivider} />
 						
 						<View style={styles.socialButtonContainer}>
@@ -213,8 +223,9 @@ const styles = StyleSheet.create({
 		fontWeight: '600',
 	},
 	header: {
-		marginTop: 16,
-		marginHorizontal: 16,
+		marginTop: 24,
+		marginHorizontal: 10,
+		marginBottom: 24,
 		flexDirection: 'column',
 		alignItems: 'center',
 		justifyContent: 'space-between',
@@ -270,6 +281,9 @@ const styles = StyleSheet.create({
 		paddingVertical: 15,
 		backgroundColor: "#141414",
 		borderRadius: 8,
+		borderWidth: 1,
+		borderColor: "gray",
+		borderStyle: "solid",
 		padding: 8,
 		width: 120,
 		height: 60,
